@@ -18,4 +18,26 @@
         <maven.compiler.target>20</maven.compiler.target>
         <exec.mainClass>com.timco.jdbc.JDBC</exec.mainClass>
     </properties>
+    <build>
+        <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.10.1</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <executable>java</executable>
+                <mainClass>ConexionBD.TimcoCRUD</mainClass>
+            </configuration>
+        </plugin>
+    </plugins>
+    </build>
 </project>

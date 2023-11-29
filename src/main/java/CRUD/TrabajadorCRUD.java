@@ -12,7 +12,7 @@ public class TrabajadorCRUD {
     
     public void agregarTrabajador(Trabajador trabajador){
         //Consulta SQL
-        String insertQuery = "INSERT INTO Trabajador (Nombre_Completo) VALUES (?)";
+        String insertQuery = "INSERT INTO Trabajador (Nombre_Completo, Numero_ID) VALUES (?, ?)";
         
         try (Connection conn = ConexionBD.obtenerConexion();//Método para obtener conexion a la BD
         
@@ -20,7 +20,8 @@ public class TrabajadorCRUD {
                 PreparedStatement statement= conn.prepareStatement(insertQuery)){
             
             statement.setString(1, trabajador.getNombre_Completo());
-            
+            statement.setInt (2,trabajador.getNumero_ID());
+             
             //Ejecutar la consulta
             statement.executeUpdate();
             System.out.println("Trabajador agregado correctamente.");

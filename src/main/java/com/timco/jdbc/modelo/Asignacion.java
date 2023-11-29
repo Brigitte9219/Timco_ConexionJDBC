@@ -1,6 +1,9 @@
 
 package com.timco.jdbc.modelo;
 
+import java.sql.Date;
+
+
 //Definición de la clase Asignación
 public class Asignacion {
     

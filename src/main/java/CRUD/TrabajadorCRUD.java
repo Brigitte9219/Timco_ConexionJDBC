@@ -5,6 +5,7 @@ import ConexionBD.ConexionBD;
 import com.timco.jdbc.modelo.Trabajador;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -67,4 +68,64 @@ public class TrabajadorCRUD {
         }
     }
     
-}
+    public void consultarTrabajador (int Numero_ID){
+        //Consulta SQL
+        String selectQuery= "SELECT Nombre_Completo, Correo_Electronico, Tipo_ID, Numero_ID, Fecha_Expedicion, "
+                + "Ciudad_Expedicion, Fecha_Nacimiento, Lugar_Nacimiento, Edad, Estatura, Genero, Estado_Civil, RH, Grupo_Sanguineo,"
+                + "Localidad, Ciudad_Residencia, Barrio, Direccion, Telefono_Movil, Telefono_Fijo, EPS, AFP, Escolaridad, Profesion,"
+                + "Talla_Camisa, Talla_Pantalon, Talla_Chaqueta, Talla_Calzado, Emergencia_NombreCompleto, Emergencia_Parentesco,"
+                + "Emergencia_TelefonoMovil, Emergencia_TelefonoFijo FROM Trabajador WHERE Numero_ID= ?";
+        
+        try (Connection conn = ConexionBD.obtenerConexion();//Método para obtener conexion a la BD
+        
+                //Crear un objeto PreparedStatement
+                PreparedStatement statement= conn.prepareStatement(selectQuery)){
+                statement.setInt(1, Numero_ID);
+                ResultSet result = statement.executeQuery();
+                
+                if (result.next()) {
+                System.out.println("Nombre Completo: " + result.getString("Nombre_Completo"));
+                System.out.println("Correo Electrónico: " + result.getString("Correo_Electronico"));
+                System.out.println("Tipo ID: " + result.getString("Tipo_ID"));
+                System.out.println("Número ID: " + result.getString("Numero_ID"));
+                System.out.println("Fecha de expedición: " + result.getString("Fecha_Expedicion"));
+                System.out.println("Ciudad de expedición: " + result.getString("Ciudad_Expedicion"));
+                System.out.println("Fecha de nacimiento: " + result.getString("Fecha_Nacimiento"));
+                System.out.println("Lugar de nacimiento: " + result.getString("Lugar_Nacimiento"));
+                System.out.println("Edad: " + result.getString("Edad"));
+                System.out.println("Estatura: " + result.getString("Estatura"));
+                System.out.println("Genero: " + result.getString("Genero"));
+                System.out.println("Estado civil: " + result.getString("Estado_Civil"));
+                System.out.println("RH: " + result.getString("RH"));
+                System.out.println("Grupo sanguíneo: " + result.getString("Grupo_Sanguineo"));
+                System.out.println("Localidad: " + result.getString("Localidad"));
+                System.out.println("Ciudad de residencia: " + result.getString("Ciudad_Residencia"));
+                System.out.println("Barrio: " + result.getString("Barrio"));               
+                System.out.println("Dirección: " + result.getString("Direccion"));
+                System.out.println("Teléfono Móvil: " + result.getString("Telefono_Movil"));
+                System.out.println("Teléfono fijo: " + result.getString("Telefono_Fijo"));
+                System.out.println("EPS: " + result.getString("EPS"));
+                System.out.println("AFP: " + result.getString("AFP"));
+                System.out.println("Escolaridad: " + result.getString("Escolaridad"));
+                System.out.println("Profesion: " + result.getString("Profesion"));
+                System.out.println("Talla camisa: " + result.getString("Talla_Camisa"));
+                System.out.println("Talla pantalon: " + result.getString("Talla_Pantalon"));
+                System.out.println("Talla chaqueta: " + result.getString("Talla_Chaqueta"));               
+                System.out.println("Talla calzado: " + result.getString("Talla_Calzado"));
+                System.out.println("En caso de emergencia - Nombre completo: " + result.getString("Emergencia_NombreCompleto"));
+                System.out.println("En caso de emergencia - Parentesco: " + result.getString("Emergencia_Parentesco"));
+                System.out.println("En caso de emergencia - Teléfono móvil: " + result.getString("Emergencia_TelefonoMovil"));
+                System.out.println("En caso de emergencia - Teléfono fijo: " + result.getString("Emergencia_TelefonoFijo"));
+                
+                
+            } else { 
+                System.out.println("Trabajador no encontrado.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error al consultar el trabajador.");
+        }
+    }
+
+        }
+        

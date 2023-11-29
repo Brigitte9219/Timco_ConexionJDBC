@@ -11,7 +11,7 @@ public class TimcoCRUD {
     
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        /*
         Trabajador trabajador =new Trabajador();
         
         trabajador.setNombre_Completo("Brigitte Padilla");
@@ -46,13 +46,16 @@ public class TimcoCRUD {
         trabajador.setEmergencia_Parentesco("Madre");
         trabajador.setEmergencia_TelefonoMovil("3114890254");
         trabajador.setEmergencia_TelefonoFijo("0");
-        
+        */
         
         
         TrabajadorCRUD trabajadorcrud= new TrabajadorCRUD();
         
         //Agregar trabajador
-        trabajadorcrud.agregarTrabajador(trabajador);
+        //trabajadorcrud.agregarTrabajador(trabajador);
+        
+        //Consultar trabajador
+        trabajadorcrud.consultarTrabajador(1118551584);
         
         
         ConexionBD.cerrarConexion();

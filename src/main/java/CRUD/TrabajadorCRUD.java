@@ -116,14 +116,75 @@ public class TrabajadorCRUD {
                 System.out.println("En caso de emergencia - Parentesco: " + result.getString("Emergencia_Parentesco"));
                 System.out.println("En caso de emergencia - Teléfono móvil: " + result.getString("Emergencia_TelefonoMovil"));
                 System.out.println("En caso de emergencia - Teléfono fijo: " + result.getString("Emergencia_TelefonoFijo"));
-                
-                
+                              
             } else { 
                 System.out.println("Trabajador no encontrado.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
             System.err.println("Error al consultar el trabajador.");
+        }
+    }
+    
+    
+    public void actualizarTrabajador(int Numero_ID, Trabajador nuevoTrabajador) {
+        String updateQuery = "UPDATE Trabajador SET Nombre_Completo=?, Correo_Electronico=?, Tipo_ID=?, Numero_ID=?, Fecha_Expedicion=?, "
+            + "Ciudad_Expedicion=?, Fecha_Nacimiento=?, Lugar_Nacimiento=?, Edad=?, Estatura=?, Genero=?, Estado_Civil=?, RH=?, Grupo_Sanguineo=?,"
+            + "Localidad=?, Ciudad_Residencia=?, Barrio=?, Direccion=?, Telefono_Movil=?, Telefono_Fijo=?, EPS=?, AFP=?, Escolaridad=?, Profesion=?,"
+            + "Talla_Camisa=?, Talla_Pantalon=?, Talla_Chaqueta=?, Talla_Calzado=?, Emergencia_NombreCompleto=?, Emergencia_Parentesco=?,"
+            + "Emergencia_TelefonoMovil=?, Emergencia_TelefonoFijo=? WHERE Numero_ID=?";
+        
+         
+        try (Connection conn = ConexionBD.obtenerConexion();
+             PreparedStatement statement = conn.prepareStatement(updateQuery)) {
+             
+            // Establecer valores para los parámetros en el orden correcto
+            statement.setString(1, nuevoTrabajador.getNombre_Completo());
+            statement.setString(2, nuevoTrabajador.getCorreo_Electronico());
+            statement.setString(3, nuevoTrabajador.getTipo_ID());
+            statement.setInt (4,nuevoTrabajador.getNumero_ID());
+            statement.setDate(5, nuevoTrabajador.getFecha_Expedicion());
+            statement.setString(6, nuevoTrabajador.getCiudad_Expedicion());
+            statement.setDate(7, nuevoTrabajador.getFecha_Nacimiento());
+            statement.setString(8, nuevoTrabajador.getLugar_Nacimiento());
+            statement.setInt(9, nuevoTrabajador.getEdad());
+            statement.setDouble(10, nuevoTrabajador.getEstatura());
+            statement.setString(11, nuevoTrabajador.getGenero());
+            statement.setString(12, nuevoTrabajador.getEstado_Civil());
+            statement.setString(13, nuevoTrabajador.getRH());
+            statement.setString(14, nuevoTrabajador.getGrupo_Sanguineo());
+            statement.setString(15, nuevoTrabajador.getLocalidad());
+            statement.setString(16, nuevoTrabajador.getCiudad_Residencia());
+            statement.setString(17, nuevoTrabajador.getBarrio());
+            statement.setString(18, nuevoTrabajador.getDireccion());
+            statement.setString(19, nuevoTrabajador.getTelefono_Movil());
+            statement.setString(20, nuevoTrabajador.getTelefono_Fijo());
+            statement.setString(21, nuevoTrabajador.getEPS());
+            statement.setString(22, nuevoTrabajador.getAFP());
+            statement.setString(23, nuevoTrabajador.getEscolaridad());
+            statement.setString(24, nuevoTrabajador.getProfesion());
+            statement.setString(25, nuevoTrabajador.getTalla_Camisa());
+            statement.setString(26, nuevoTrabajador.getTalla_Pantalon());
+            statement.setString(27, nuevoTrabajador.getTalla_Chaqueta());
+            statement.setString(28, nuevoTrabajador.getTalla_Calzado());
+            statement.setString(29, nuevoTrabajador.getEmergencia_NombreCompleto());
+            statement.setString(30, nuevoTrabajador.getEmergencia_Parentesco());
+            statement.setString(31, nuevoTrabajador.getEmergencia_TelefonoMovil());
+            statement.setString(32, nuevoTrabajador.getEmergencia_TelefonoFijo());
+            
+            // Establecer el valor para el parámetro Numero_ID en el WHERE clause
+            statement.setInt(33, Numero_ID);
+            
+            int rowsUpdated = statement.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                System.out.println("Trabajador actualizado correctamente.");
+            } else {
+                System.out.println("Trabajador no encontrado.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error al actualizar el trabajador.");
         }
     }
 

@@ -82,7 +82,7 @@ public class ProductoCRUD {
     
     public void actualizarProducto(String Nombre_Producto, Producto nuevoProducto) {
         String updateQuery = "UPDATE Producto SET Nombre_Producto=?, Codigo_Interno=?, Marca=?, Serie=?, Fecha_Fabricacion=?, "
-            + "Referencia=?, Lote=?, Norma_Tecnica=?, Cantidad=?, Proveedor=? WHERE Numero_ID=?";
+            + "Referencia=?, Lote=?, Norma_Tecnica=?, Cantidad=?, Proveedor=? WHERE Nombre_Producto=?";
         
          
         try (Connection conn = ConexionBD.obtenerConexion();

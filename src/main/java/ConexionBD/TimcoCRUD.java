@@ -1,7 +1,9 @@
 
 package ConexionBD;
 
+import CRUD.ProductoCRUD;
 import CRUD.TrabajadorCRUD;
+import com.timco.jdbc.modelo.Producto;
 import com.timco.jdbc.modelo.Trabajador;
 import java.sql.Date;
 
@@ -11,9 +13,10 @@ public class TimcoCRUD {
     
     public static void main(String[] args) {
         // TODO code application logic here
+       
+        //TrabajadorCRUD trabajadorcrud= new TrabajadorCRUD();
         
-        TrabajadorCRUD trabajadorcrud= new TrabajadorCRUD();
-        
+        /*
         //Agregar trabajador
         Trabajador trabajador =new Trabajador();
         trabajador.setNombre_Completo("Brigitte Padilla");
@@ -49,14 +52,16 @@ public class TimcoCRUD {
         trabajador.setEmergencia_TelefonoMovil("3114890254");
         trabajador.setEmergencia_TelefonoFijo("0");
         
-        trabajadorcrud.agregarTrabajador(trabajador);
+        trabajadorcrud.agregarTrabajador(trabajador);*/
+        
         
         /*
         //Consultar trabajador
         System.out.println("Consulta de trabajador");
-        trabajadorcrud.consultarTrabajador(1118551584);
+        trabajadorcrud.consultarTrabajador(1118551584);*/
         
         
+        /*
         // Actualizar trabajador
         System.out.println("Actualización de trabajador");
         Trabajador nuevoTrabajador = new Trabajador();
@@ -93,13 +98,65 @@ public class TimcoCRUD {
         nuevoTrabajador.setEmergencia_TelefonoMovil("3114890254");
         nuevoTrabajador.setEmergencia_TelefonoFijo("0");
         
-        trabajadorcrud.actualizarTrabajador(1118551584, nuevoTrabajador);
+        trabajadorcrud.actualizarTrabajador(1118551584, nuevoTrabajador);*/
 
         
+        /*
         // Eliminar trabajador
         System.out.println("Eliminación de trabajador");
-        trabajadorcrud.eliminarTrabajador(1118551584);
-        */
+        trabajadorcrud.eliminarTrabajador(1118551584);*/
+        
+        
+        //-------------------------------------------------------------------------------------------------
+        
+        
+        ProductoCRUD productocrud= new ProductoCRUD();
+        /*
+        //Agregar producto
+        Producto producto =new Producto();
+        producto.setNombre_Producto("Gafas");
+        producto.setCodigo_Interno("1");
+        producto.setMarca("Arseg");
+        producto.setSerie("123");
+        producto.setFecha_Fabricacion(Date.valueOf("2020-08-05"));
+        producto.setReferencia("Pepito");
+        producto.setLote("111");
+        producto.setNorma_Tecnica("Ntc 45000");
+        producto.setCantidad(5);
+        producto.setProveedor("Patricia");
+        
+        productocrud.agregarProducto(producto);*/
+        
+        
+        /*
+        //Consultar producto
+        System.out.println("Consulta de producto");
+        productocrud.consultarProducto("Gafas");*/
+        
+        
+        /*
+        // Actualizar producto
+        System.out.println("Actualización de producto");
+        Producto nuevoProducto = new Producto();
+        nuevoProducto.setNombre_Producto("Casco");
+        nuevoProducto.setCodigo_Interno("2");
+        nuevoProducto.setMarca("Arseg");
+        nuevoProducto.setSerie("456");
+        nuevoProducto.setFecha_Fabricacion(Date.valueOf("2021-08-05"));
+        nuevoProducto.setReferencia("Carlos");
+        nuevoProducto.setLote("222");
+        nuevoProducto.setNorma_Tecnica("Ntc 45001");
+        nuevoProducto.setCantidad(5);
+        nuevoProducto.setProveedor("Lucia");
+        
+        productocrud.actualizarProducto("Gafas", nuevoProducto);*/
+        
+        
+        
+        // Eliminar producto
+        System.out.println("Eliminación de producto");
+        productocrud.eliminarProducto(1);
+        
         
         //Cerrar la conexion a la base de datos
         ConexionBD.cerrarConexion();

@@ -19,6 +19,7 @@ public class Solicitud {
     private String Area;
     private String Observaciones;
 
+    /*
     //Método constructor para inicializar las variables
     public Solicitud(int idsolicitud, Date Fecha_Solicitud, String Nombre_Trabajador, int trabajador_Numero_ID, String producto_Nombre_Producto, int Cantidad, String Talla, String Actividad_aRealizar, String Proyecto, String Area, String Observaciones) {
         this.idsolicitud = idsolicitud;
@@ -32,7 +33,7 @@ public class Solicitud {
         this.Proyecto = Proyecto;
         this.Area = Area;
         this.Observaciones = Observaciones;
-    }
+    }*/
     
     //Getters y Setters - Acceder y Modificar
     public int getIdsolicitud() {

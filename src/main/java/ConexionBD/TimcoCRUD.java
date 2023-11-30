@@ -2,8 +2,10 @@
 package ConexionBD;
 
 import CRUD.ProductoCRUD;
+import CRUD.SolicitudCRUD;
 import CRUD.TrabajadorCRUD;
 import com.timco.jdbc.modelo.Producto;
+import com.timco.jdbc.modelo.Solicitud;
 import com.timco.jdbc.modelo.Trabajador;
 import java.sql.Date;
 
@@ -110,7 +112,7 @@ public class TimcoCRUD {
         //-------------------------------------------------------------------------------------------------
         
         
-        ProductoCRUD productocrud= new ProductoCRUD();
+        //ProductoCRUD productocrud= new ProductoCRUD();
         /*
         //Agregar producto
         Producto producto =new Producto();
@@ -152,10 +154,58 @@ public class TimcoCRUD {
         productocrud.actualizarProducto("Gafas", nuevoProducto);*/
         
         
-        
+        /*
         // Eliminar producto
         System.out.println("Eliminación de producto");
-        productocrud.eliminarProducto(1);
+        productocrud.eliminarProducto(1);*/
+        
+        
+        
+        //-------------------------------------------------------------------------------------------------
+        
+        
+        SolicitudCRUD solicitudcrud= new SolicitudCRUD();
+        /*
+        //Agregar solicitud
+        Solicitud solicitud =new Solicitud();
+        solicitud.setFecha_Solicitud(Date.valueOf("2020-08-12"));
+        solicitud.setNombre_Trabajador("Brigitte");
+        solicitud.setCantidad(5);
+        solicitud.setTalla("L");
+        solicitud.setActividad_aRealizar("Correr");
+        solicitud.setProyecto("Cali");
+        solicitud.setArea("Admon");
+        solicitud.setObservaciones("Nada");
+               
+        solicitudcrud.agregarSolicitud(solicitud);*/
+        
+        
+        /*
+        //Consultar solicitud
+        System.out.println("Consulta de solicitud");
+        solicitudcrud.consultarSolicitud(1);*/
+        
+        
+        /*
+        // Actualizar solicitud
+        System.out.println("Actualización de solicitud");
+        Solicitud nuevoSolicitud = new Solicitud();
+        nuevoSolicitud.setFecha_Solicitud(Date.valueOf("2020-08-12"));
+        nuevoSolicitud.setNombre_Trabajador("Diego");
+        nuevoSolicitud.setCantidad(5);
+        nuevoSolicitud.setTalla("L");
+        nuevoSolicitud.setActividad_aRealizar("Barrer");
+        nuevoSolicitud.setProyecto("Medellin");
+        nuevoSolicitud.setArea("Operativo");
+        nuevoSolicitud.setObservaciones("Nada");
+        
+        solicitudcrud.actualizarSolicitud(1, nuevoSolicitud);*/
+        
+        
+        
+        // Eliminar solicitud
+        System.out.println("Eliminación de solicitud");
+        solicitudcrud.eliminarSolicitud(1);
         
         
         //Cerrar la conexion a la base de datos

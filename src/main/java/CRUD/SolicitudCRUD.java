@@ -110,7 +110,7 @@ public class SolicitudCRUD {
         }
     }
     
-    public void eliminarProducto(int idsolicitud) {
+    public void eliminarSolicitud(int idsolicitud) {
         String deleteQuery = "DELETE FROM Solicitud WHERE idsolicitud = ?";
 
         try (Connection conn = ConexionBD.obtenerConexion();

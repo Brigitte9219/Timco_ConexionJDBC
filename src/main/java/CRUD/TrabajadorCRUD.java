@@ -187,6 +187,25 @@ public class TrabajadorCRUD {
             System.err.println("Error al actualizar el trabajador.");
         }
     }
+    
+    public void eliminarTrabajador(int Numero_ID) {
+        String deleteQuery = "DELETE FROM trabajador WHERE Numero_ID = ?";
+
+        try (Connection conn = ConexionBD.obtenerConexion();
+             PreparedStatement statement = conn.prepareStatement(deleteQuery)) {
+            statement.setInt(1, Numero_ID);
+            int rowsDeleted = statement.executeUpdate();
+
+            if (rowsDeleted > 0) {
+                System.out.println("Trabajador eliminado correctamente.");
+            } else {
+                System.out.println("Trabajador no encontrado.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.err.println("Error al eliminar el trabajador.");
+        }
+    }
 
         }
         
